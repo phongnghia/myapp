@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'books.apps.AppsConfig'
+    'myresume.apps.MyresumeConfig',
 ]
 
 MIDDLEWARE = [
@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'myapp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'books_django',
+        'NAME': 'myresume_django',
         'USER': 'myroot',
         'PASSWORD': '12345678',
         'HOST': '127.0.0.1',
