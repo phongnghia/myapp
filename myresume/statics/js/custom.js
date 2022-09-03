@@ -5,7 +5,12 @@
 
     // PRE LOADER
     $(window).load(function(){
-      $('.preloader').fadeOut(1000); // set duration in brackets    
+      $('.preloader').fadeOut(1000); // set duration in brackets
+      var value = document.getElementsByClassName("my-custom")[0].innerText.replace(/(\d{1})(\d{3})(\d{3})(\d{3})/, "+$1 ($2)-$3-$4");
+      var arr = document.getElementsByClassName("my-custom");
+      for (let i = 0; i < arr.length; i ++){
+          arr[i].innerText = value;
+      }
     });
 
     // CUSTOM LINK
