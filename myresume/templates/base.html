@@ -38,11 +38,11 @@ https://templatemo.com/tm-578-first-portfolio
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <a href="index.html" class="navbar-brand mx-auto mx-lg-0">My resume</a>
+                <a href="/myresume" class="navbar-brand mx-auto mx-lg-0">{{ single_resume.name }}</a>
                 <div class="d-flex align-items-center d-lg-none">
                     <i class="navbar-icon bi-telephone-plus me-3"></i>
-                    <a class="custom-btn btn" href="#section_5">
-                        120-240-9600
+                    <a class="custom-btn btn btn" href="#section_5">
+                        {{ single_resume.phone }}
                     </a>
                 </div>
                 <div class="collapse navbar-collapse" id="navbarNav">
@@ -66,7 +66,7 @@ https://templatemo.com/tm-578-first-portfolio
                     <div class="d-lg-flex align-items-center d-none ms-auto">
                         <i class="navbar-icon bi-telephone-plus me-3"></i>
                         <a class="custom-btn btn my-custom" href="#section_5">
-                            {% block phone %}{% endblock %}
+                            {{ single_resume.phone }}
                         </a>
                     </div>
                 </div>

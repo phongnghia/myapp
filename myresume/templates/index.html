@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block title %}{{ single_resume.name }}{% endblock %}
 {% block phone %}{{ single_resume.phone }}{% endblock %}
 {% block content %}
 {% block single_resume %}
@@ -143,13 +144,13 @@
                                 <div class="d-flex flex-wrap align-items-center border-bottom mb-4 pb-3">
                                     <h3 class="mb-0">{{ obj.tech_name }}</h3>
                                     <div class="services-price-wrap ms-auto">
-                                        <p class="services-price-text mb-0">{{ obj.tech_level }} <i class="fa-solid fa-star"></i></p>
+                                        <p class="services-price-text mb-0">{{ obj.tech_level }}/5 <i class="fa-solid fa-star"></i></p>
                                         <div class="services-price-overlay"></div>
                                     </div>
                                 </div>
                             {% for item in list_technical %}
                                 {% if obj.tech_name_id == item.id %}
-                                <p>{{ item }}</p>
+                                <p>{{ item.tech_description }}</p>
                                 <div class="services-icon-wrap d-flex justify-content-center align-items-center">
                                     <i class="services-icon {{ item.script_code }}"></i>
                                 </div>
