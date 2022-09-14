@@ -15,6 +15,8 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+PROJECT_DIR = Path(__file__).resolve().parent
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
@@ -25,7 +27,7 @@ SECRET_KEY = 'django-insecure-5ta212e(5&y%l**=44s*ntbp6ajokze&t8jp783^r-zty5t01p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', ]
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', ]
 
 # Application definition
 
@@ -77,9 +79,12 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'myresume_django',
-        'USER': 'myroot',
-        'PASSWORD': '12345678',
-        'HOST': '127.0.0.1',
+        # 'USER': 'myroot',
+        # 'PASSWORD': '12345678',
+        # 'HOST': '127.0.0.1',
+        'USER': 'root',
+        'PASSWORD': 'password',
+        'HOST': 'localhost',
         'PORT': '3306'
     }
 }

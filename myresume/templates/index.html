@@ -182,7 +182,7 @@
                             <small class="projects-tag">{{ project.project_des }}</small>
                             <h3 class="projects-title">{{ project.project_name }}</h3>
                         </div>
-                        <a href="images/projects/nikhil-KO4io-eCAXA-unsplash.jpg" class="popup-image">
+                        <a href="{{ project.project_image.url }}" class="popup-image">
                             <img src="{{ project.project_image.url }}" class="projects-image img-fluid"
                                  alt="">
                         </a>
