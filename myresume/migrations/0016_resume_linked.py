@@ -7,7 +7,7 @@ from myapp.settings import BASE_DIR
 
 
 def InsertTemplate():
-    sqlStatement = open(os.path.join(BASE_DIR, 'query/technical.sql'), 'r').read()
+    sqlStatement = open(os.path.join(BASE_DIR, 'query/resume.sql'), 'r').read()
     return sqlStatement
 
 
