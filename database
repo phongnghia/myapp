@@ -7,4 +7,3 @@ service mysql start
 #mysql -uroot -ppassword --init-command='create database myresume_django;'
 mysql -uroot -ppassword -e "create database myresume_django;"
 python3 $HOME_APP/manage.py migrate
-python3 $HOME_APP/manage.py runserver 8087

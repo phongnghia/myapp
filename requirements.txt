@@ -1,4 +1,4 @@
 Django
 mysqlclient
-Pillow
+Pillow==6.2.0
 djangorestframework
