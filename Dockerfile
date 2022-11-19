@@ -1,8 +1,7 @@
 FROM ubuntu:18.04
 
 RUN apt-get update && \
-    apt-get install -y python3 python3-pip mysql-server libmysqlclient-dev python3-venv && \
-    apt-get install -y vim
+    apt-get install -y python3 python3-pip mysql-server libmysqlclient-dev
 
 RUN service mysql start
 
