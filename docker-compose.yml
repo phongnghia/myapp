@@ -1,10 +1,22 @@
 version: '3.9'
 
 services:
-  app:
-    build:
-      context: .
+  web:
+    image: myresume:0.1
+    container_name: myresume
+    tty: true
+#    build:
+#      context: .
     ports:
-      - 8000:8000
-    volumes:
-      - ./app:/app
+      - "8087:8087"
+#    volumes:
+#      - .:/myapp
+  nginx:
+    image: nginx:latest
+    ports:
+      - "8001:80"
+    depends_on:
+      - web
+    links:
+      - web
+    restart: on-failure
