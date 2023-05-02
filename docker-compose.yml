@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   web:
-    image: myresume:0.1
+    image: myresume:0.2
     container_name: myresume
     tty: true
 #    build:

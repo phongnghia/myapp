@@ -29,6 +29,8 @@ INSERT INTO myresume_detailtechnical (id,tech_exp,tech_level,name_id,tech_name_i
 INSERT INTO myresume_detailtechnical (id,tech_exp,tech_level,name_id,tech_name_id) VALUES (3,0,2,1,4);
 INSERT INTO myresume_detailtechnical (id,tech_exp,tech_level,name_id,tech_name_id) VALUES (4,0,2,1,3);
 INSERT INTO myresume_detailtechnical (id,tech_exp,tech_level,name_id,tech_name_id) VALUES (6,0,3,1,5);
+INSERT INTO myresume_detailtechnical (id,tech_exp,tech_level,name_id,tech_name_id) VALUES (7,2,3,1,6);
+INSERT INTO myresume_detailtechnical (id,tech_exp,tech_level,name_id,tech_name_id) VALUES (8,1.5,2,1,7);
 
 
 

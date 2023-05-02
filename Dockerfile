@@ -1,12 +1,14 @@
 FROM ubuntu:18.04
 
 RUN apt-get update && \
-    apt-get install -y python3 python3-pip mysql-server libmysqlclient-dev python3-venv
+    apt-get install -y python3 python3-pip mysql-server mysql-client libmysqlclient-dev python3-venv
 
 RUN service mysql start
 
 ENV HOME_APP /app
 ENV LISTEN_PORT=8000
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
 
 RUN mkdir $HOME_APP
 WORKDIR  $HOME_APP
