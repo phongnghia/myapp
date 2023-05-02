@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:latest
 
 RUN apt-get update && \
     apt-get install -y python3 python3-pip mysql-server mysql-client libmysqlclient-dev python3-venv
