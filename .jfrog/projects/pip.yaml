@@ -1,0 +1,8 @@
+version: 1
+type: pip
+resolver:
+  repo: default-pypi-virtual
+  serverId: phongnghia
+deployer:
+  repo: default-pypi-virtual
+  serverId: phongnghia

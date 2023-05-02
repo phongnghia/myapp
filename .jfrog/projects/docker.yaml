@@ -1,0 +1,8 @@
+version: 1
+type: docker
+resolver:
+  repo: default-docker-virtual
+  serverId: phongnghia
+deployer:
+  repo: default-docker-virtual
+  serverId: phongnghia
