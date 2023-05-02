@@ -38,11 +38,11 @@ jobs:
 
           # [Mandatory]
           # JFrog platform URL
-          JF_URL: ${{ secrets.JF_URL }}
+          JF_URL: https://phongnghia.jfrog.io/
 
           # [Mandatory if JF_USER and JF_PASSWORD are not provided]
           # JFrog access token with 'read' permissions on Xray service
-          JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
+          JF_ACCESS_TOKEN: eyJ2ZXIiOiIyIiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYiLCJraWQiOiJVZzVDdUFlREFLc1JIZDNXR1pGVnBoWElsWWN2TThyQzRZVVlBcThZUF9ZIn0.eyJzdWIiOiJqZmFjQDAxZ3plMmJycTEzeGRyMXBlOXgxOTMxc3FtXC91c2Vyc1wvcGhvbmduZ2hpYSIsInNjcCI6ImFwcGxpZWQtcGVybWlzc2lvbnNcL2FkbWluIiwiYXVkIjoiKkAqIiwiaXNzIjoiamZmZUAwMWd6ZTJicnExM3hkcjFwZTl4MTkzMXNxbSIsImlhdCI6MTY4MzA1MTU5NywianRpIjoiZTNkMWZmYWUtYTU2ZS00ZDFhLTg3YmItYzI2ODE1YjFjYzUxIn0.EDZ3CUhN-yTcZ3Zg1i_S95c8p_UWY9S5wxk1PnF9jdDTQtUcRyMmQ2ti7uHJBC7NzNAOUIHMiRd6thAf6TMZk-SHlPZqENIdnk7XDGlcvruV3vGjTmH0lqctj-lwkmDzRpIpcchV9UMt41COtGD-1An9aeIkN8oBQsOZ8hbEnpGS_yc2IBmZfIzCVoDTQj0sUDAarIl-Ve7uw-vIYw8519YhWe2zKhfss9L8pj-_KGVhVmmzkGgFDpvFF9bBGs9_7ZvI0Euj5OM0L5vdAIFy7CN82PWntjMx9ySx4TFuOGgvl0sYFQQ8rhN5rrNS48P81t9kwCjzOIj3kxRMz6Gs3w
 
           # [Mandatory if JF_ACCESS_TOKEN is not provided]
           # JFrog username with 'read' permissions for Xray. Must be provided with JF_PASSWORD
