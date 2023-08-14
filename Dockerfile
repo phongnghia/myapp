@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 
 RUN apt-get update && \
-    apt-get install -y python3 python3-pip mysql-server mysql-client libmysqlclient-dev python3-venv
+    apt-get install -y pkg-config python3 python3-pip mysql-server mysql-client libmysqlclient-dev python3-venv
 
 RUN service mysql start
 
