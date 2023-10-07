@@ -6,7 +6,9 @@ YAML
 Shell scripting
 ``` 
 
-### 1. COMMAND TO PULL MY RESUME IMAGE FROM DOCKER HUB
+### COMMAND TO PULL MY RESUME IMAGE FROM DOCKER HUB
+
+---
 ```commandline
 docker pull phongnghia/myresume:<tagname>
 ```
@@ -15,7 +17,9 @@ _or_
 docker pull phongnghia.jfrog.io/default-docker-local/myresume:<tagname>
 ```
 
-### 2. COMMAND TO PUSH IMAGE TO REPOSITORY
+### COMMAND TO PUSH IMAGE TO REPOSITORY
+
+---
 
 _To docker hub_
 ```markdown
@@ -27,9 +31,11 @@ jf docker tag <image>:<tag> phongnghia.jfrog.io/default-docker-virtual/<image>:<
 jf docker push phongnghia.jfrog.io/default-docker-virtual/<image>:<tag>
 jf docker pull phongnghia.jfrog.io/default-docker-virtual/<image>:<tag>
 ```
-### 3. HOW TO RUN THE RESUME IMAGE
+### HOW TO RUN THE RESUME IMAGE
 
-##### 3.1 Pull resume image from docker hub or Jfrog artifactory
+---
+
+#### Pull resume image from docker hub or Jfrog artifactory
 ```commandline
 docker pull phongnghia/myresume:<tagname>
 ```
@@ -37,7 +43,7 @@ _or_
 ``` command
 docker pull phongnghia.jfrog.io/default-docker-local/myresume:<tagname>
 ```
-##### 3.2 Run container using the image pull above
+#### Run container using the image pull above
 ```commandline
 docker run -p <host_port>:<container_port> -it phongnghia/myresume:<tagname>
 ```
@@ -46,7 +52,7 @@ _example:_
 docker run -p 8000:8000 -it phongnghia/myresume:0.3
 ```
 
-##### 3.3 Run container using compose setup
+#### Run container using compose setup
 ```yaml
 version: '3.9'
 services:
@@ -61,7 +67,7 @@ _run command:_
 ```commandline
 docker compose up
 ```
-##### 3.4 Run application using kubernetes YAML
+#### Run application using kubernetes YAML
 ```commandline
 kubectl apply -f <pathfile>
 ```
