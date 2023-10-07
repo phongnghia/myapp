@@ -10,18 +10,18 @@ Shell scripting
 ```commandline
 docker pull phongnghia/myresume:<tagname>
 ```
-###### or
+_or_
 ``` command
 docker pull phongnghia.jfrog.io/default-docker-local/myresume:<tagname>
 ```
 
 ### 2. COMMAND TO PUSH IMAGE TO REPOSITORY
 
-##### To docker hub
+_To docker hub_
 ```markdown
 docker push phongnghia/<imagename>:<tagname>
 ```
-##### To Jfrog artifactory
+_To Jfrog artifactory_
 ```commandline
 jf docker tag <image>:<tag> phongnghia.jfrog.io/default-docker-virtual/<image>:<tag>
 jf docker push phongnghia.jfrog.io/default-docker-virtual/<image>:<tag>
@@ -33,7 +33,7 @@ jf docker pull phongnghia.jfrog.io/default-docker-virtual/<image>:<tag>
 ```commandline
 docker pull phongnghia/myresume:<tagname>
 ```
-###### or
+_or_
 ``` command
 docker pull phongnghia.jfrog.io/default-docker-local/myresume:<tagname>
 ```
@@ -41,7 +41,7 @@ docker pull phongnghia.jfrog.io/default-docker-local/myresume:<tagname>
 ```commandline
 docker run -p <host_port>:<container_port> -it phongnghia/myresume:<tagname>
 ```
-###### example:
+_example:_
 ```commandline
 docker run -p 8000:8000 -it phongnghia/myresume:0.3
 ```
@@ -57,7 +57,7 @@ services:
     ports:
       - "<port>:<port>" #8080:8080
 ```
-###### run command
+_run command:_
 ```commandline
 docker compose up
 ```
@@ -65,7 +65,7 @@ docker compose up
 ```commandline
 kubectl apply -f <pathfile>
 ```
-###### example
+_example:_
 ```commandline
 kubectl apply -f myapp\myresume.yml
 ```
