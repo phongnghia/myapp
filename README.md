@@ -8,7 +8,7 @@ Shell scripting
 
 ### COMMAND TO PULL MY RESUME IMAGE FROM DOCKER HUB
 
----
+___
 ```commandline
 docker pull phongnghia/myresume:<tagname>
 ```
@@ -19,7 +19,7 @@ docker pull phongnghia.jfrog.io/default-docker-local/myresume:<tagname>
 
 ### COMMAND TO PUSH IMAGE TO REPOSITORY
 
----
+___
 
 _To docker hub_
 ```markdown
@@ -33,7 +33,7 @@ jf docker pull phongnghia.jfrog.io/default-docker-virtual/<image>:<tag>
 ```
 ### HOW TO RUN THE RESUME IMAGE
 
----
+___
 
 #### Pull resume image from docker hub or Jfrog artifactory
 ```commandline
