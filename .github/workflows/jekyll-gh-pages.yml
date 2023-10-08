@@ -22,16 +22,15 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-
-  # Deployment job
-  deploy:
-    environment:
-      name: myresume
-      url: ${{ steps.deployment.outputs.page_url }}
+  container-test-job:
     runs-on: ubuntu-latest
     container:
       image: phongnghia/myresume:0.4
       env:
         NODE_ENV: development
-      ports:
-        - 4443:8000
+  # Deployment job
+  deploy:
+    environment:
+      name: myresume
+      url: http://0.0.0.0:8000/myresume
+    runs-on: ubuntu-latest
