@@ -33,4 +33,4 @@ jobs:
       - name: Pull myresume image
         run: docker pull phongnghia/myresume:0.4
       - name: Deploy myresume
-        run: docker run -p 4443:8000 -it phongnghia/myresume:0.4
+        run: docker run -p 4443:8000 phongnghia/myresume:0.4
