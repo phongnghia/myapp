@@ -29,8 +29,9 @@ jobs:
       name: myresume
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    steps:
-      - name: Pull myresume image
-        run: docker pull phongnghia/myresume:0.4
-      - name: Deploy myresume
-        run: docker run -p 4443:8000 phongnghia/myresume:0.4
+    container:
+      image: phongnghia/myresume:0.4
+      env:
+        NODE_ENV: development
+      ports:
+        - 4443:8000
