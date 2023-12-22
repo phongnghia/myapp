@@ -16,7 +16,7 @@
                                  class="avatar-image avatar-image-large img-fluid" alt="">
                             <h1 class="hero-title ms-3 mb-0">Hello friend!</h1>
                         </div>
-                        <h2 class="mb-4">I’m {{ single_resume.position }}</h2>
+                        <h2 class="mb-4">I'm a {{ single_resume.position }}</h2>
                         <p class="mb-4"><a class="custom-btn btn custom-link" href="#section_2">Let's begin</a></p>
                     </div>
                 </div>
@@ -45,7 +45,7 @@
                             <h2 class="text-white me-4 mb-0">My Story</h2>
                             <img src="{{ single_resume.image.url }}" class="avatar-image img-fluid" alt="">
                         </div>
-                        <h3 class="pt-2 mb-3">a little bit about {{ single_resume.name }}</h3>
+                        <h3 class="pt-2 mb-3">A little bit about {{ single_resume.name }}</h3>
                         <p>
                             {{ single_resume.story }}
                         </p>
@@ -86,19 +86,19 @@
                     <div class="about-thumb">
                         <div class="row">
                             <div class="col-lg-6 col-6 featured-border-bottom py-2">
-                                <strong class="featured-numbers ">{{ single_exp }}</strong>
+                                <strong class="featured-numbers-cus">{{ single_exp }}</strong>
                                 <p class="featured-text">Years of Experiences</p>
                             </div>
                             <div class="col-lg-6 col-6 featured-border-start featured-border-bottom ps-5 py-2">
-                                <strong class="featured-numbers">{{ single_resume.part_project }}</strong>
+                                <strong class="featured-numbers-cus">{{ single_resume.part_project }}</strong>
                                 <p class="featured-text">Participating Projects</p>
                             </div>
                             <div class="col-lg-6 col-6 pt-4">
-                                <strong class="featured-numbers">{{ single_resume.university }}</strong>
+                                <strong class="featured-numbers-cus">{{ single_resume.university }}</strong>
                                 <p class="featured-text">Graduate From University</p>
                             </div>
                             <div class="col-lg-6 col-6 featured-border-start ps-5 pt-4">
-                                <strong class="featured-numbers">{{ single_resume.gpa }}</strong>
+                                <strong class="featured-numbers-cus">{{ single_resume.gpa }}</strong>
                                 <p class="featured-text">GPA</p>
                             </div>
                         </div>
@@ -168,7 +168,7 @@
     <section class="projects section-padding" id="section_4">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 col-md-8 col-12 ms-auto">
+                <div class="col-lg-10 col-12 mx-auto">
                     <div class="section-title-wrap d-flex justify-content-center align-items-center mb-4">
                         <img style="border-radius: 0px" src="{% static 'images/hiring.png' %}" class="avatar-image img-fluid" alt="">
                         <h2 class="text-white ms-4 mb-0">Projects</h2>
@@ -196,7 +196,7 @@
     <section class="contact section-padding" id="section_5">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-md-8 col-12">
+                <div class="col-lg-10 col-12 mx-auto">
                     <div class="section-title-wrap d-flex justify-content-center align-items-center mb-5">
                         <img src="{{ single_resume.image.url }}"
                              class="avatar-image img-fluid" alt="">
@@ -222,7 +222,8 @@
                     <div class="contact-info d-flex flex-column">
                         <strong class="site-footer-title d-block mb-3">About</strong>
                         <p class="mb-2">
-                            {{ single_resume.name }} is {{ single_resume.position }}
+                            My name is {{ single_resume.name }} <br>
+                            I'm currently working as a software engineer
                         </p>
                         <strong class="site-footer-title d-block mt-4 mb-3">Email</strong>
                         <p>

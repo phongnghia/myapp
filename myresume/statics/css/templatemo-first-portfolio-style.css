@@ -590,6 +590,12 @@ strong {
   display: block;
 }
 
+.featured-numbers-cus {
+  font-size: var(--h3-font-size);
+  line-height: normal;
+  display: block;
+}
+
 .featured-text {
   color: var(--secondary-color);
 }
