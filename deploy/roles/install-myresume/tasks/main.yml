@@ -1,0 +1,30 @@
+---
+- name: Remove {{ template_folder }}
+  file:
+    path: "{{ template_folder }}"
+    state: absent
+
+- name: Create {{ template_folder }}
+  file:
+    path: "{{ template_folder }}"
+    state: directory
+
+- name: Create myresume yaml
+  template:
+    src: myresume.yml
+    dest: "{{ template_folder }}/myresume.yml"
+
+- name: Install myresume
+  command: kubectl apply -f {{ template_folder }}/myresume.yml
+
+- name: Sleep 30 seconds
+  wait_for:
+    timeout: 30
+
+- name: Create myresume service
+  template:
+    src: myresume-svc.yml
+    dest: "{{ template_folder }}/myresume-svc.yml"
+
+- name: Install myresume service
+  command: kubectl create -f {{ template_folder }}/myresume-svc.yml

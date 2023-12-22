@@ -1,0 +1,54 @@
+---
+- name: Add an apt signing key for docker
+  apt_key:
+    url: "{{ google_apt_key }}"
+    state: present
+
+- name: Add repository for docker
+  apt_repository:
+    repo: deb http://apt.kubernetes.io/kubernetes-xenial main
+    state: present
+
+- name: Install docker.io
+  package:
+    name: docker.io
+    state: latest
+  ignore_errors: true
+
+- name: Create tmp
+  file:
+    path: "{{ template_folder }}"
+    state: directory
+
+- name: Download cri-dockerd
+  get_url:
+    url: "https://github.com/Mirantis/cri-dockerd/releases/download/v{{ cri_docker_version }}/cri-dockerd_{{ cri_docker_version }}.3-0.ubuntu-jammy_amd64.deb"
+    dest: "{{ template_folder }}"
+
+- name: Install cri-dockerd
+  apt:
+    deb: "{{ template_folder }}/cri-dockerd_{{ cri_docker_version }}.3-0.ubuntu-jammy_amd64.deb"
+
+- name: Add user to docker group
+  command: usermod -aG docker $USER
+
+- name: Config docker service
+  lineinfile:
+    path: /lib/systemd/system/docker.service
+    regexp: '(\s.*ExecStart=/usr/bin/dockerd).*'
+    line: 'ExecStart=/usr/bin/dockerd -H fd://'
+    backrefs: true
+
+- name: Enable docker service
+  systemd:
+    name: docker
+    daemon_reload: true
+    state: restarted
+    enabled: true
+
+- name: Enable cri-dockerd
+  systemd:
+    state: restarted
+    daemon_reload: true
+    name: cri-docker
+    enabled: true

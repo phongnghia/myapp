@@ -1,0 +1,36 @@
+---
+- name: Download Kubernetes images
+  shell: |
+    kubeadm config images list --kubernetes-version {{ kubernetes_version }} | xargs -L1 docker pull
+
+- name: Create kubeadm config file
+  template:
+    src: kubeadm.yml
+    dest: "{{ template_folder }}/kubeadm.yml"
+
+- name: Start kubernetes
+  command:
+    cmd: kubeadm init --config={{ template_folder }}/kubeadm.yml
+
+- name: Sleep 3 minutes
+  wait_for:
+    timeout: 180
+
+- name: Untaint node
+  command: kubectl taint nodes --all node-role.kubernetes.io/master-
+
+- name: Sleep 3 minutes
+  wait_for:
+    timeout: 180
+
+- name: Create calico file
+  template:
+    src: calico.yml
+    dest: "{{ template_folder }}/calico.yml"
+
+- name: Install calico
+  command: kubectl apply -f {{ template_folder }}/calico.yml
+
+- name: Sleep 3 minutes
+  wait_for:
+    timeout: 180

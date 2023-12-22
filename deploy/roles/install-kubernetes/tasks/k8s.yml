@@ -1,0 +1,39 @@
+---
+- name: Install kubernetes binaries package
+  package:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - kubeadm
+    - kubectl
+    - kubelet
+
+- name: Hold packages
+  dpkg_selections:
+    name: "{{ item }}"
+    selection: hold
+  with_items:
+    - kubeadm
+    - kubectl
+    - kubelet
+
+- name: Swapoff
+  command: swapoff -a
+  ignore_errors: true
+
+- name: Update hostname
+  hostname:
+    name: master-node
+
+- name: Iptables
+  shell: |
+      iptables -P INPUT ACCEPT
+      iptables -P FORWARD ACCEPT
+      iptables -P OUTPUT ACCEPT
+      iptables -t nat -F \
+      iptables -t mangle -F
+      iptables -F
+      iptables -X
+      iptables-save | grep -v KUBE | grep -v cali > clear.rules 
+      iptables-restore < clear.rules
+      modprobe overlay && modprobe br_netfilter && echo '1' > /proc/sys/net/ipv4/ip_forward

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/name: myresume
+  name: myresume
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: myresume
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: myresume
+    spec:
+      containers:
+      - name: myresume
+        image: cr-hn-1.bizflycloud.vn/bdb0db3e2577426e9b4d39a21af06dfc/phongnghia/myresume:0.1
+        ports:
+        - containerPort: 8000
+          port: 6514

@@ -1,0 +1,13 @@
+---
+
+- name: Install Docker
+  include_tasks: docker.yml
+  tags: install-docker
+
+- name: Install Kubernetes
+  include_tasks: k8s.yml
+  tags: install-kubernetes
+
+- name: Start Kubernetes
+  include_tasks: start-k8s.yml
+  tags: start-kubernetes

@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: myresume-svc
+spec:
+  selector:
+    app.kubernetes.io/name: myresume
+  ports:
+    - name: http
+      protocol: TCP
+      port: {{ node_port }}
+      targetPort: {{ container_port }}
+  externalIPs:
+    - {{  public_ip }}

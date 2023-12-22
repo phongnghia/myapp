@@ -1,0 +1,25 @@
+- name: Install myresume application
+  hosts: localhost
+  vars_files:
+    - vars/defaults.yml
+
+  tasks:
+    - name: Pre-install Kuebernetes
+      apt:
+        update_cache: true
+      changed_when: false
+      tags: pre-install
+
+    - name: Get public ip
+      include_tasks: get-public-ip.yml
+      when: public_ip is undefined
+
+    - name: Install Kubernetes
+      import_role:
+        name: install-kubernetes
+      tags: kubernetes
+
+    - name: Install myresume application
+      import_role:
+        name: install-myresume
+      tags: myresume

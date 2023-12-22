@@ -1,0 +1,22 @@
+---
+- name: Get interface name
+  shell: ip route | sed -n "s/^.*dev\s*\(\S*\).*/\1/p" | head -1
+  ignore_errors: true
+  register: iface_ip
+
+- name: Get public ip
+  shell: "ip -o addr | grep {{ iface_ip.stdout }} | grep -oP '(?<=inet\\s)\\d+(\\.\\d+){3}' | head -1"
+  register: interface_ip
+  when: iface_ip is defined and iface_ip.stdout is defined
+
+- fail:
+    msg: "PUBLIC IP is undefined"
+  failed_when: interface_ip.stdout is undefined or interface_ip.stdout | length < 0
+
+- block:
+    - debug:
+        var: interface_ip
+
+    - set_fact:
+        public_ip: "{{ interface_ip.stdout }}"
+  when: interface_ip.stdout is defined and interface_ip.stdout | length > 0
