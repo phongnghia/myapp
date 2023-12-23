@@ -13,7 +13,8 @@ HOW TO DEPLOY APPLICATION TO SERVER
 ### Command 
 **Install Kubernetes and myresume app**
 > ansible-playbook install.yml
-**Install with skip-tags option
+>
+**Install with skip-tags option**
 > ansible-playbook install.yml --skip-tags "*<tag_name>*"
 >
 Example:
