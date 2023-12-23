@@ -1,0 +1,22 @@
+#!/bin/sh
+
+FILE_NAME="installation-playbooks"
+PATH_TO_FILE="target/$FILE_NAME.zip"
+TARGET_TO_FILE_NAME="$FILE_NAME"-"$VERSION".zip
+DEFAULT_JFROG_GENERIC="https://phongnghia.jfrog.io/artifactory/default-generic-local"
+DEFAULT_JFROG_USERNAME="phamhongnghia13579@gmail.com"
+PASSWORD=$1
+VERSION=$2
+rm -rf upload.log
+[ -z $PASSWORD ] && echo "Password is not set!" && exit 0
+[ -z $VERSION ] && VERSION="0.1"
+curl -s -u"$DEFAULT_JFROG_USERNAME":"$PASSWORD" -T "$PATH_TO_FILE" "$DEFAULT_JFROG_GENERIC/$TARGET_TO_FILE_NAME" >> upload.log
+status=$(cat upload.log | grep errors)
+[ -n "$status" ] && echo "Upload failed!" && exit 0
+echo "Upload successfully!"
+
+usage(){
+  echo "SCRIPT TO UPLOAD MYRESUME PACKAGE FILE"
+  echo "command: ./upload-jfrog <VERSION> <YOUR_JFROG_PASSWORD>"
+  echo
+}
