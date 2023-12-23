@@ -9,7 +9,7 @@ VERSION=$2
 TARGET_TO_FILE_NAME="$FILE_NAME-$VERSION.zip"
 rm -rf upload.log
 [ -z $PASSWORD ] && echo "Password is not set!" && exit 0
-[ -z $VERSION ] && VERSION="0.1"
+[ -z $VERSION ] && VERSION="v0.1-TEST"
 curl -s -u"$DEFAULT_JFROG_USERNAME":"$PASSWORD" -T "$PATH_TO_FILE" "$DEFAULT_JFROG_GENERIC/$TARGET_TO_FILE_NAME" >> upload.log
 status=$(cat upload.log | grep errors)
 [ -n "$status" ] && echo "Upload failed!" && exit 0
