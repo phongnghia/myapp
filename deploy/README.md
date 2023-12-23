@@ -4,7 +4,7 @@ HOW TO DEPLOY APPLICATION TO SERVER
 > mvn clean install -Dpassword=<your_jfrog_password> -Drevision=<playbooks_version>
 
 ## Download installation-playbooks from Jfrog artifactory
-> wget https://phongnghia.jfrog.io/artifactory/default-generic-local/installation-playbooks-<version>.zip
+> wget https://phongnghia.jfrog.io/artifactory/default-generic-local/installation-playbooks-<package_version>.zip
 
 ## Run installation-playbooks to deploy application
 > [!NOTE]
