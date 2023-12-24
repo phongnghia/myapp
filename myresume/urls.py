@@ -6,6 +6,8 @@ import myresume.views
 import myresume.routers.resume
 
 urlpatterns = [
-    path('myresume/', myresume.views.SingleResume, name='myresume'),
+    path('', myresume.views.SingleResume, name='myresume'),
+    # Update later
+    #path('/myresume', myresume.views.SingleResume, name='myresume'),
     # path('api/', include('myresume.routers.resume'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
