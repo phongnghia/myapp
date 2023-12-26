@@ -37,10 +37,6 @@
 - name: Untaint node
   command: kubectl taint nodes --all node-role.kubernetes.io/master-
 
-- name: Sleep 3 minutes
-  wait_for:
-    timeout: 180
-
 - name: Create calico file
   template:
     src: calico.yml
