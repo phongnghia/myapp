@@ -6,7 +6,7 @@
 
 - name: Add repository for docker
   apt_repository:
-    repo: deb http://apt.kubernetes.io/kubernetes-xenial main
+    repo: deb http://apt.kubernetes.io/ kubernetes-xenial main
     state: present
 
 - name: Install docker.io
@@ -35,7 +35,7 @@
 - name: Config docker service
   lineinfile:
     path: /lib/systemd/system/docker.service
-    regexp: '(\s.*ExecStart=/usr/bin/dockerd).*'
+    regexp: 'ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock'
     line: 'ExecStart=/usr/bin/dockerd -H fd://'
     backrefs: true
 
