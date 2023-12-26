@@ -39,6 +39,11 @@
     line: 'ExecStart=/usr/bin/dockerd -H fd://'
     backrefs: true
 
+- name: Remove containerd socket
+  file:
+    path: "/run/containerd"
+    state: absent
+
 - name: Enable docker service
   systemd:
     name: docker

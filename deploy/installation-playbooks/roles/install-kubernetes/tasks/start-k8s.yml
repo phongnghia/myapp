@@ -11,6 +11,24 @@
 - name: Start kubernetes
   command:
     cmd: kubeadm init --config={{ template_folder }}/kubeadm.yml
+  register: kubeadm_stat
+
+- debug:
+    msg: "{{ kubeadm_stat.stdout_lines }}"
+  when: kubeadm_stat is defined and kubeadm_stat.stdout | length > 0
+
+- name: Create .kube directory
+  file:
+    path: "/root/.kube"
+    state: directory
+    mode: "1777"
+
+- name: Setup kube config
+  copy:
+    remote_src: true
+    src: /etc/kubernetes/admin.conf
+    dest: /root/.kube/config
+    mode: "600"
 
 - name: Sleep 3 minutes
   wait_for:
