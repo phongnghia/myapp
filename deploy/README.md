@@ -8,7 +8,7 @@ HOW TO DEPLOY APPLICATION TO SERVER
 
 ## Run installation-playbooks to deploy application
 > [!NOTE]
-> To be able to run ***ansible-playbook*** command, you need to install the following necessary packages: ***ansible, sshpass***
+> To be able to run ***ansible-playbook*** command, you need to install the following necessary packages: ***ansible, sshpass, unzip***
 
 ### Command 
 **Install Kubernetes and myresume app**
