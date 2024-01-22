@@ -2,3 +2,4 @@ Django
 mysqlclient
 Pillow
 djangorestframework
+tzdata
