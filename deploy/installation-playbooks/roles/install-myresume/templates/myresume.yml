@@ -17,5 +17,10 @@ spec:
       containers:
       - name: myresume
         image: {{ image_name }}:{{ image_verion }}
+        env:
+        - name: EMAIL_HOST_USER
+          value: "myresumemail00@gmail.com"
+        - name: EMAIL_HOST_PASSWORD
+          value: "{{ send_mail_password }}"
         ports:
         - containerPort: {{ container_port }}

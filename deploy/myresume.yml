@@ -17,6 +17,11 @@ spec:
       containers:
       - name: myresume
         image: cr-hn-1.bizflycloud.vn/bdb0db3e2577426e9b4d39a21af06dfc/phongnghia/myresume:0.1
+        env:
+          - name: EMAIL_HOST_USER
+            value: "myresumemail00@gmail.com"
+          - name: EMAIL_HOST_PASSWORD
+            value: ""
         ports:
         - containerPort: 8000
           port: 6514
