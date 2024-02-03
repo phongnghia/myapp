@@ -15,7 +15,7 @@ HOW TO DEPLOY APPLICATION TO SERVER
 > ansible-playbook install.yml
 >
 **Install with skip-tags option**
-> ansible-playbook install.yml --skip-tags "*<tag_name>*"
+> ansible-playbook install.yml --skip-tags "*<tag_name>*" --extra-vars "send_mail_password=*password*"
 >
 Example:
->ansible-playbook install.yml --skip-tags "pre-install,kubernetes"
+>ansible-playbook install.yml --skip-tags "pre-install,kubernetes"  --extra-vars "send_mail_password=*password*"
