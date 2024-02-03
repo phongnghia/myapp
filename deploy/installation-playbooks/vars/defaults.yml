@@ -1,7 +1,7 @@
 #registry: "cr-hn-1.bizflycloud.vn/bdb0db3e2577426e9b4d39a21af06dfc"
 #image_name: "{{ registry }}/phongnghia/myresume"
 image_name: "phongnghia/myresume"
-image_verion: "0.7"
+image_verion: "0.8"
 container_port: "8000"
 node_port: "80"
 send_mail_password: ""
