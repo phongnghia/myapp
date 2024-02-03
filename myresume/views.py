@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 
 from myresume.models import Resume, Technical, DetailTechnical, CompaniesWorked, Company, OtherImage, Project
+from myresume.mails.emailForm import EmailMyresumeForm, EditForm
 
 
 # Create your views here.
@@ -30,7 +31,7 @@ def GetProject(name_id):
     return Project.objects.filter(name_id=name_id)
 
 
-def SingleResume(request):
+def GetDefaultMyresume():
     single_resume = Resume.objects.filter(id=1).get()
     list_detailTechnical = DetailTechnical.objects.filter(name_id=1)
     # get experience
@@ -55,7 +56,10 @@ def SingleResume(request):
 
     list_project = GetProject(single_resume.id)
 
-    return render(request, 'index.html', {
+    form = EditForm()
+    rendered_form = form.render("form_email.html")
+
+    context = {
         'single_resume': single_resume,
         'list_detailTechnical': list_detailTechnical,
         'single_exp': single_exp,
@@ -64,4 +68,12 @@ def SingleResume(request):
         'hero_img': other_image[0].image,
         'intro_img': other_image[1].image,
         'list_project': list_project,
-    })
+        'form': rendered_form
+    }
+
+    return context
+
+
+def SingleResume(request):
+    context = GetDefaultMyresume()
+    return render(request, 'index.html', context)

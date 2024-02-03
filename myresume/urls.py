@@ -6,7 +6,8 @@ import myresume.views
 import myresume.routers.resume
 
 urlpatterns = [
-    path('', myresume.views.SingleResume, name='myresume'),
+    path(r'', myresume.views.SingleResume, name='myresume'),
+    path(r'mails/', include('myresume.mails.urls')),
     # Update later
     #path('/myresume', myresume.views.SingleResume, name='myresume'),
     # path('api/', include('myresume.routers.resume'))

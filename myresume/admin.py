@@ -1,6 +1,7 @@
 from django.contrib import admin
 
 from myresume.models import Resume, Technical, DetailTechnical, OtherImage, Company, CompaniesWorked, Project
+from myresume.mails.email import EmailMyresume
 
 
 # Register your models here.
@@ -39,6 +40,11 @@ class ProjectAdmin(admin.ModelAdmin):
     search_fields = ('name', 'project_name',)
 
 
+class EmailMyresumeAdmin(admin.ModelAdmin):
+    list_display = ('your_name', 'your_email',)
+    search_fields = ('your_email',)
+
+
 admin.site.register(Resume, ResumeAdmin)
 admin.site.register(Technical, TechnicalAdmin)
 admin.site.register(DetailTechnical, DetailTechnicalAdmin)
@@ -46,3 +52,4 @@ admin.site.register(OtherImage, OtherImageAdmin)
 admin.site.register(Company, CompanyAdmin)
 admin.site.register(CompaniesWorked, CompaniesWorkedAdmin)
 admin.site.register(Project, ProjectAdmin)
+admin.site.register(EmailMyresume, EmailMyresumeAdmin)
