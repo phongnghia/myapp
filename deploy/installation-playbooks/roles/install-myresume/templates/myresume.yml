@@ -22,5 +22,7 @@ spec:
           value: "myresumemail00@gmail.com"
         - name: EMAIL_HOST_PASSWORD
           value: "{{ send_mail_password }}"
+        - name: ANSIBLE_HOST
+          value: {{ public_ip }}
         ports:
         - containerPort: {{ container_port }}

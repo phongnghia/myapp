@@ -1,6 +1,6 @@
 from django.conf import settings
-from django.conf.urls.static import static
-from django.urls import path, include
+from django.urls import path, include, re_path
+from django.views.static import serve
 
 import myresume.views
 import myresume.routers.resume
@@ -8,7 +8,9 @@ import myresume.routers.resume
 urlpatterns = [
     path(r'', myresume.views.SingleResume, name='myresume'),
     path(r'mails/', include('myresume.mails.urls')),
-    # Update later
-    #path('/myresume', myresume.views.SingleResume, name='myresume'),
-    # path('api/', include('myresume.routers.resume'))
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
+
+urlpatterns += [
+    re_path(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT}),
+    re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT})
+]

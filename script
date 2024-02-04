@@ -3,4 +3,5 @@
 usermod -d /var/lib/mysql/ mysql
 service mysql start
 export HOME_APP="/app"
+python3 $HOME_APP/manage.py collectstatic
 python3 $HOME_APP/manage.py runserver 0.0.0.0:8000
