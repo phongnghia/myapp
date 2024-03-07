@@ -11,6 +11,9 @@ INSERT INTO myresume_technical (id,tech_name,tech_description,script_code) VALUE
 INSERT INTO myresume_technical (id,tech_name,tech_description,script_code) VALUES (5,'Docker','Docker is an open platform for developing, shipping, and running applications','fa-brands fa-docker');
 INSERT INTO myresume_technical (id,tech_name,tech_description,script_code) VALUES (6,'Ansible playbook','Ansible Playbooks offer a repeatable, re-usable, simple configuration management and multi-machine deployment system, one that is well suited to deploying complex applications','fa-solid fa-a');
 INSERT INTO myresume_technical (id,tech_name,tech_description,script_code) VALUES (7,'Shell','A shell script is a computer program designed to be run by a Unix shell, a command-line interpreter. The various dialects of shell scripts are considered to be scripting languages','fa-sharp fa-solid fa-s');
+INSERT INTO myresume_technical (id,tech_name,tech_description,script_code) VALUES (8,'Kubernetes','Kubernetes, also known as K8s, is an open-source system for automating deployment, scaling, and management of containerized applications','fa-solid fa-k');
+INSERT INTO myresume_technical (id,tech_name,tech_description,script_code) VALUES (9,'Helm','The package manager for Kubernetes. Helm is the best way to find, share, and use software built for Kubernetes.','fa-solid fa-h');
+INSERT INTO myresume_technical (id,tech_name,tech_description,script_code) VALUES (10,'ASP.NET','ASP.NET is an open source web framework, created by Microsoft, for building modern web apps and services with .NET. ASP.NET is cross platform and runs on Windows, Linux, macOS, and Docker.','fa-solid fa-a');
 
 
 
