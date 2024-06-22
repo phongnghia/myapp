@@ -4,10 +4,10 @@
     url: "{{ google_apt_key }}"
     state: present
 
-- name: Add repository for docker
-  apt_repository:
-    repo: deb http://apt.kubernetes.io/ kubernetes-xenial main
-    state: present
+#- name: Add repository for docker
+#  apt_repository:
+#    repo: deb http://apt.kubernetes.io/ kubernetes-xenial main
+#    state: present
 
 - name: Install docker.io
   package:

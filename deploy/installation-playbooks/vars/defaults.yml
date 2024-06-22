@@ -10,7 +10,8 @@ send_mail_password: ""
 google_apt_key: "https://packages.cloud.google.com/apt/doc/apt-key.gpg"
 
 cri_docker_version: "0.3.8"
-kubernetes_version: "1.28.2"
+kubernetes_major_version: "1.28"
+kubernetes_version: "{{ kubernetes_major_version }}.2"
 template_folder: "/root/myresume_dev"
 
 # https://github.com/Mirantis/cri-dockerd/releases/download/v0.3.8/cri-dockerd-0.3.8.amd64.tgz

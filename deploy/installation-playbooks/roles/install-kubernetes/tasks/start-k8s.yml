@@ -1,7 +1,16 @@
 ---
+
+- name: Check Kubernetes version
+  shell: kubectl version | grep Client | grep -oP 'v.*'
+  register: check_kubernetes_version
+
+- fail:
+    msg: "Cannot get Kubernetes version"
+  when: check_kubernetes_version is undefined and check_kubernetes_version.stdout is undefined
+
 - name: Download Kubernetes images
   shell: |
-    kubeadm config images list --kubernetes-version {{ kubernetes_version }} | xargs -L1 docker pull
+    kubeadm config images list --kubernetes-version {{ check_kubernetes_version.stdout }} | xargs -L1 docker pull
 
 - name: Create kubeadm config file
   template:

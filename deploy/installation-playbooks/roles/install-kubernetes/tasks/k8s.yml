@@ -1,4 +1,14 @@
 ---
+
+- name: Setup key
+  shell: "echo $'y' | curl -fsSL https://pkgs.k8s.io/core:/stable:/v{{ kubernetes_major_version }}/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg"
+- name: Update kubernetes source list
+  shell: "echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v{{ kubernetes_major_version }}/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list"
+
+- name: Apt update
+  apt:
+    update_cache: true
+
 - name: Install kubernetes binaries package
   package:
     name: "{{ item }}"
