@@ -2,8 +2,8 @@
 
 FILE_NAME="installation-playbooks"
 PATH_TO_FILE="target/$FILE_NAME.zip"
-DEFAULT_JFROG_GENERIC="https://phamhong.jfrog.io/artifactory/generic"
-DEFAULT_JFROG_USERNAME="<you email>"
+DEFAULT_JFROG_GENERIC="<jfrog_artifactory>" #"https://phamhong.jfrog.io/artifactory/generic"
+DEFAULT_JFROG_USERNAME="<your_email>"
 PASSWORD=$1
 VERSION=$2
 TARGET_TO_FILE_NAME="$FILE_NAME-$VERSION.zip"
