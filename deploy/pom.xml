@@ -10,12 +10,19 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <version>${revision}</version>
 
     <packaging>pom</packaging>
+    <properties>
+        <myresume.version>0.9</myresume.version>
+        <kubernetes.major.version>1.32</kubernetes.major.version>
+        <kubernetes.minor.version>1</kubernetes.minor.version>
+        <cri-docker.version>0.3.16</cri-docker.version>
+        <calico.version>v3.25.0</calico.version>
+    </properties>
 
     <build>
         <resources>
             <resource>
                 <directory>./installation-playbooks</directory>
-                <filtering>false</filtering>
+                <filtering>true</filtering>
                 <includes>
                     <include>**</include>
                 </includes>

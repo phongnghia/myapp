@@ -1,0 +1,75 @@
+#!/bin/bash
+
+ANSIBLE_COMMAND="ansible-playbook install.yml"
+EXTRA_VARS=""
+SKIP_TAGS=""
+OPTS=""
+
+print_error(){
+  echo -e "\033[41m[ERROR]\033[0m ${1}"
+}
+
+print_success(){
+  echo -e "\033[42m[SUCCESS]\033[0m ${1}"
+}
+
+print_warning(){
+  echo -e "\033[43m[WARN]\033[0m ${1}"
+}
+
+print_info(){
+  echo -e "\033[44m[INFO]\033[0m ${1}"
+}
+
+validate_command(){
+  [ -z "${1}" ] && print_error "Command is incorrect" && exit 1
+}
+
+usage(){
+  echo -e "\033[1m*** INSTALLATION COMMAND ***\033[0m"
+  echo
+  echo -e "\033[3m./install [options] [args] - Default all components\033[0m"
+  echo
+  echo -e " -e| --extra-vars    : Extra values for the install command - Use double quotes for multiple values"
+  echo -e " -s| --skip-tags     : Exclude specific tags from the install command - Use double quotes for multiple values"
+  #echo -e " [component]         : Component to be installed - Default: [all]"
+  echo -e " -h| --help           : Command usage instructions"
+}
+
+main(){
+  $ANSIBLE_COMMAND $([ -n "$EXTRA_VARS" ] && echo --extra-vars "$EXTRA_VARS") $([ -n "$SKIP_TAGS" ] && echo --skip-tags "$SKIP_TAGS")
+}
+
+while [ $# -ne 0 ]; do
+    case $1 in
+    -h|--help)
+    shift
+    validate_command "$#"
+    OPTION="usage"
+    ;;
+    -e|--extra-vars)
+    validate_command "$#"
+    [ -z "$2" ] && print_error "Missing parameter for the -e | --extra-vars option" && exit 1
+    export EXTRA_VARS=$2
+    shift 2
+    ;;
+    -s|--skip-tags)
+    validate_command "$#"
+    [ -z "$2" ] && print_error "Missing parameter for the -s| --skip-tags option" && exit 1
+    export SKIP_TAGS=$2
+    shift 2
+    ;;
+    *)
+    print_error "Invalid command $1"
+    exit 1
+    esac
+done
+
+case $OPTION in
+  usage)
+  usage
+  exit 0
+  ;;
+esac
+
+main

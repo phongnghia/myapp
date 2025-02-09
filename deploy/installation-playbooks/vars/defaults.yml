@@ -1,7 +1,7 @@
 #registry: "cr-hn-1.bizflycloud.vn/bdb0db3e2577426e9b4d39a21af06dfc"
 #image_name: "{{ registry }}/phongnghia/myresume"
 image_name: "phongnghia/myresume"
-image_verion: "0.9"
+image_verion: "${myresume.version}"
 container_port: "8000"
 node_port: "80"
 send_mail_password: ""
@@ -9,9 +9,11 @@ send_mail_password: ""
 # for kubernetes
 google_apt_key: "https://packages.cloud.google.com/apt/doc/apt-key.gpg"
 
-cri_docker_version: "0.3.8"
-kubernetes_major_version: "1.28"
-kubernetes_version: "{{ kubernetes_major_version }}.2"
+cri_docker_version: "${cri-docker.version}"
+kubernetes_major_version: "${kubernetes.major.version}"
+kubernetes_minor_version: "${kubernetes.minor.version}"
+kubernetes_version: "{{ kubernetes_major_version }}.{{ kubernetes_minor_version }}"
+calico_version: "${calico.version}"
 template_folder: "/root/myresume_dev"
 
 # https://github.com/Mirantis/cri-dockerd/releases/download/v0.3.8/cri-dockerd-0.3.8.amd64.tgz
